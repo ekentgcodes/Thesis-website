@@ -12,7 +12,7 @@ export const Banner = () => {
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [index, setIndex] = useState(1);
-  const toRotate = [ "Pose Estimation", "Pose Detection" ];
+  const toRotate = ["Detection Algorithms" ];
   const period = 2000;
 
   useEffect(() => {
@@ -57,7 +57,7 @@ export const Banner = () => {
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                 <span className="tagline">Welcome to our Website</span>
-                <h1>{`3D Motion Capture Animation Using: `} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Pose Estimation", "Pose Detection" ]'><span className="wrap">{text}</span></span></h1>
+                <h1>{`3D Motion Captured Animation Using Pose`} <span className="txt-rotate" dataperiod="1000" data-rotate='[ "Detection Algorithms" ]'><span className="wrap">{text}</span></span></h1>
                   
                  
               </div>}

@@ -16,6 +16,8 @@ export const Footer = () => {
          
           <Col size={12} sm={6}>
            <h1 className="footer-text">Developers and Researchers</h1>
+           <br></br>
+           <br></br>
           </Col>
          
         </Row>
@@ -61,7 +63,7 @@ export const Footer = () => {
          
         
           <Col size={15} sm={7} className="text-right text-sm-end">
-            <p>Copyright 2023. All Rights Reserved</p>
+            <p></p>
           </Col>
         </Row>
     </Container>
