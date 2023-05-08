@@ -1,3 +1,5 @@
+
+
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import colorSharp from "../assets/img/color-sharp.png"
@@ -98,17 +100,19 @@ const fileInputRef = useRef(null);
 
 
 
-  let api = 'http://127.0.0.1:8000/api'
+  let api = 'http://192.168.43.194:8000/paths/upload/'
 
 
    const handleFileUpload = (e) => {
     e.preventDefault();
     
+    const data_ref = 'asonajofno';
     
     if (file) {
       let formData = new FormData();
  
-      formData.append('filename', file);
+      formData.append('file', file);
+      formData.append('ref_id', data_ref);
      
       let axiosConfig = {
         method: 'POST',
@@ -116,7 +120,7 @@ const fileInputRef = useRef(null);
     }
 
     console.log(formData)
-    axios.post(api + '/file/', formData).then(
+    axios.post(api, formData).then(
         response =>{
             console.log(response, e)
             e.target.value = null;
@@ -127,6 +131,12 @@ const fileInputRef = useRef(null);
     })
    
     }
+
+    // function
+    // requests from GET 'http://192.168.43.194:8000/paths/output/' every minute, pass ref_id
+    // {file_path: '__filePath__'}
+    // if success
+    // set download path
   };
 
   
@@ -195,6 +205,7 @@ const fileInputRef = useRef(null);
                 </div>
             </div>
         </div>
+        <a href={`http://192.168.43.194:8000/temp_output/${output_name}`} download={true}>Download</a>
         <img className="background-image-left" src={colorSharp} alt="Image" />
 
       
@@ -204,9 +215,5 @@ const fileInputRef = useRef(null);
     
   )
 };
-
-
-
-
 
 

@@ -20,10 +20,11 @@ class FilesViewSet(viewsets.ModelViewSet):
 
 @api_view(['POST'])
 def upload_file(request):
-    if request.method == 'POST' and request.FILES['file']:
+    if request.method == 'POST' and request.FILES['file','ref-id']:
         file = request.FILES['file']
+        ref_id = request.FILES['ref_id']
         fs = FileSystemStorage()
-        ref_id = generate_ref_id() # Generate a unique reference ID
+        # ref_id = generate_ref_id() # Generate a unique reference ID
         filename = fs.save(ref_id, file) # Save the file to the file system with the reference ID as the filename
         # Save the reference ID to the MySQL database along with any other file information you want to store
         file_obj = Files.objects.create(file=filename, ref_id=ref_id)
